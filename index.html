@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>App GASTOS</title>
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+<h1>Mi aplicacion para gastos</h1>
+
+<form id="formTask">
+    <div id="form">
+    Tipo de cambio
+    <input id="ingreso" type="radio" value="ingreso" name="typeTransaction"></input>
+    <label for="ingreso">ingreso</label>
+    <input id="egreso" type="radio"  value="egreso" name="typeTransaction"></input>
+   <label for="egreso">egreso</label>
+   </div>
+
+ <div id="form">
+  <label for="description">descripcion</label>
+ <input id="description" name="description" placeholder="inserte la descripcion">
+ </div>
+
+ <div id="form">
+  <label>monto</label>
+ <input id="monto" type="number" placeholder="inserte el monto gastado">
+ </div>
+
+ <div id="form">
+  <label>categoria</label>
+ <input id="categoria" placeholder="que categoria es?">
+ </div>
+
+ <div id="form">
+ <button >Enviar Formulario</button>
+</div>
+
+</form>
+
+<table id="tasks">
+<tr>
+  <th>tipo</th>
+  <th>descripcion</th>
+  <th>monto</th>
+  <th>categoria</th>
+</tr>
+<tr>
+  <td>Ingreso</td>
+  <td>Big mac</td>
+  <td>900</td>
+  <td>comida</td>
+</tr>
+
+</table>
+
+
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
