@@ -6,15 +6,16 @@ form.addEventListener("submit", function(e) {
   let table = document.getElementById("tasks");
   let row = table.insertRow(-1);
 
+let type = formInfo.get("typeTransaction")
 let descripcion = document.getElementById("description").value;
 let monto = document.getElementById("monto").value;
 let categoria = document.getElementById("categoria").value;
 
-if (descripcion,monto,categoria == "") {
+if (type,descripcion,monto,categoria == "") {
   alert("no dejes espacios vacios");
 } else {
   let newCell = row.insertCell(0);
-  newCell.textContent = formInfo.get("typeTransaction");
+  newCell.textContent = `${type}`
 
   newCell = row.insertCell(1);
   newCell.textContent = `${descripcion}`
