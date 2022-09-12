@@ -9,10 +9,7 @@ h1{
 }
 
 
-td, th {
-  padding: 15px;
-  border: 1px solid rgb(104, 99, 88);
-}
+
 
 table {
 
@@ -44,7 +41,6 @@ main {
 }
 
 #formTask{
-  padding-top: 60px;
   margin: 0px auto;
 }
 
@@ -60,14 +56,16 @@ main {
 
 
 
-
-tr{
-  font-family: 'Georgia, 'Times New Roman', Times, serif;
+th,tr,td {
+  position: relative;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 15px;
+  border: 1px solid rgb(104, 99, 88);
 }
 
-th {
-
-  font-family: Georgia, 'Times New Roman', Times, serif;
+#tasks{
+  margin: 0px auto;
+  height: 20px;
 }
 
 label {
