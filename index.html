@@ -10,35 +10,8 @@
 
 <h1>My bills app</h1>
 
-<form id="formTask">
-    <div id="form">
-   <label> Type of change </label>
-    <input id="ingreso" type="radio" value="ingreso" name="typeTransaction"></input>
-    <label for="ingreso">Entry</label>
-    <input id="egreso" type="radio"  value="egreso" name="typeTransaction"></input>
-   <label for="egreso">Egress</label>
-   </div>
+<main>
 
- <div id="form">
-  <label for="description">description</label>
- <input id="description" name="description" placeholder="inserte la descripcion">
- </div>
-
- <div id="form">
-  <label>amount</label>
- <input id="monto" type="number" placeholder="inserte el monto gastado">
- </div>
-
- <div id="form">
-  <label>category</label>
- <input id="categoria" placeholder="que categoria es?">
- </div>
-
- <div id="form">
- <button >Enviar Formulario</button>
-</div>
-
-</form>
 
 <table id="tasks">
 <tr>
@@ -48,7 +21,7 @@
   <th>category</th>
 </tr>
 <tr>
-  <td>income</td>
+  <td>Egress</td>
   <td>Big mac</td>
   <td>900</td>
   <td>food</td>
@@ -57,7 +30,37 @@
 </table>
 
 
+<form id="formTask">
+  <div id="form">
+ <label> Type of change </label>
+  <input id="type" type="radio" value="Entry"  name="typeTransaction"></input>
+  <label for="ingreso">Entry</label>
+  <input id="type" type="radio"  value="Egress" name="typeTransaction"></input>
+ <label for="egreso">Egress</label>
+ </div>
 
-    <script src="./app.js"></script>
+<div id="form">
+<label for="description">description</label>
+<input class="input" id="description" name="description" placeholder="insert the description">
+</div>
+
+<div id="form">
+<label>the amount </label>
+<input class="input" id="amount" type="number" placeholder="insert the amount">
+</div>
+
+<div id="form">
+<label>category of</label>
+<input class="input" id="category" placeholder="what category is?">
+</div>
+
+<div id="form">
+<button >Send data</button>
+</div>
+
+</form>
+
+</main>
+    <script src="app.js"></script>
   </body>
 </html>
