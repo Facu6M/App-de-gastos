@@ -8,8 +8,8 @@ form.addEventListener("submit", function(e) {
 
 let type = formInfo.get("typeTransaction")
 let descripcion = document.getElementById("description").value;
-let monto = document.getElementById("monto").value;
-let categoria = document.getElementById("categoria").value;
+let monto = document.getElementById("amount").value;
+let categoria = document.getElementById("category").value;
 
 if (type,descripcion,monto,categoria == "") {
   alert("no dejes espacios vacios");
@@ -21,7 +21,7 @@ if (type,descripcion,monto,categoria == "") {
   newCell.textContent = `${descripcion}`
 
   newCell = row.insertCell(2);
-  newCell.textContent = `${monto}`
+  newCell.textContent = `$${monto}`
 
   newCell = row.insertCell(3);
   newCell.textContent = `${categoria}`
@@ -30,4 +30,3 @@ if (type,descripcion,monto,categoria == "") {
 document.getElementById("formTask").reset();
 })
 
-agregar();
