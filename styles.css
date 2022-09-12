@@ -1,58 +1,75 @@
 body {
-  background: linear-gradient(to top, rgb(46, 29, 131), rgb(9, 5, 48) 50%, rgb(49, 30, 145) 75%, rgb(52, 43, 146) 75%);
+  background: rgb(199, 181, 181);
 }
 
 h1{
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-form {
-
- text-align: center;
-}
 
 td, th {
-  padding:10px;
-  border: 2px solid rgb(45, 39, 39);
+  padding: 15px;
+  border: 1px solid rgb(104, 99, 88);
 }
 
 table {
-  margin: 0 auto;
-  padding-top: 20px;
+
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #form {
-  background-color: rgb(88, 79, 197);
   padding-bottom: 25px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 button {
-  background-color:rgb(73, 61, 164);
-  border: 1px solid rgb(41, 29, 137);
   height: 40px;
   width: 120px;
   cursor: pointer;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: rgb(8, 57, 57);
+border: 0px solid;
+margin-left: 200px;
 }
 
-#formTask {
-  width: 100%;
+
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 60px;
 }
 
-label {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+#formTask{
+  padding-top: 60px;
+  margin: 0px auto;
 }
 
-input {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.input {
+  margin: 0px auto;
+  padding-left: 100px;
+  width: 350px;
+  height: 30px;
+  border: 0px white solid;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-th{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+
+tr{
+  font-family: 'Georgia, 'Times New Roman', Times, serif;
 }
 
 th {
-  font-family: 'Times New Roman', Times, serif;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+label {
+
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 }
