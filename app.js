@@ -1,8 +1,16 @@
+
+document.addEventListener("DOMContentLoaded", function(){
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
+  for (i=0; i < transactionObjArr.length; i++) {
+      insertRowInTransactionTable(transactionObjArr[i])
+   }
+})
+
+
 const form = document.getElementById("formTask")
 
 form.addEventListener("submit", function(e) {
 e.preventDefault();
-
 let formacion = new FormData(form)
 let transactionObj= converFormDataToTransactionObj(formacion);
 
@@ -17,16 +25,6 @@ if(localStorage.getItem('transactionData') === null) {
 }
 
 insertRowInTransactionTable(transactionObj)
-})
-
-
-
-
-document.addEventListener("DOMContentLoaded", function(){
-    let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
-    for (i=0; i < transactionObjArr.length; i++) {
-        insertRowInTransactionTable(transactionObjArr[i])
-     }
 })
 
 function converFormDataToTransactionObj(formacion) {
@@ -59,6 +57,15 @@ function insertRowInTransactionTable(transactionObj) {
 
     newCell = row.insertCell(3);
     newCell.textContent = transactionObj["categoria"];
+
+    let NewdeleteCell = row.insertCell(4);
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "eliminar";
+    NewdeleteCell.appendChild(deleteButton)
+
+  deleteButton.addEventListener("click", function(e) {
+    e.target.parentNode.parentNode.remove()
+    })
 
   form.reset();
 }
