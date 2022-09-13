@@ -1,12 +1,3 @@
-
-document.addEventListener("DOMContentLoaded", function(){
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
-  for (i=0; i < transactionObjArr.length; i++) {
-      insertRowInTransactionTable(transactionObjArr[i])
-   }
-})
-
-
 const form = document.getElementById("formTask")
 
 form.addEventListener("submit", function(e) {
@@ -40,11 +31,11 @@ function converFormDataToTransactionObj(formacion) {
   }
 }
 
-
 function insertRowInTransactionTable(transactionObj) {
 
   let table = document.getElementById("tasks");
   let row = table.insertRow(-1);
+  row.setAttribute("data-transaction-id", transactionObj["transactionId"])
 
     let newCell = row.insertCell(0);
     newCell.textContent = transactionObj["type"]
@@ -64,12 +55,22 @@ function insertRowInTransactionTable(transactionObj) {
     NewdeleteCell.appendChild(deleteButton)
 
   deleteButton.addEventListener("click", function(e) {
-    e.target.parentNode.parentNode.remove()
+    let transactionRow = e.target.parentNode.parentNode;
+    let transactionId = transactionRow.getAttribute("data-transaction-id")
+    transactionRow.remove();
+    deleteTransactionObj(transactionId)
     })
 
   form.reset();
 }
 
+function deleteTransactionObj(transactionId) {
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
+  let transactionIndexArray = transactionObjArr.findIndex(element => element.transactionId === transactionId)
+  transactionObjArr.splice(transactionIndexArray, 1)
+  let transactionArrayJSON = JSON.stringify(transactionIndexArray)
+  localStorage.setItem("transactionData", transactionArrayJSON)
+}
 
 
 
