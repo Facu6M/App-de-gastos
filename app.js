@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function(){
+    let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
+    for (i=0; i < transactionObjArr.length; i++) {
+        insertRowInTransactionTable(transactionObjArr[i])
+     }
+  })
+
 const form = document.getElementById("formTask")
 
 form.addEventListener("submit", function(e) {
