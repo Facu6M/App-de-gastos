@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(){
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionesData"));
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
   for (i=0; i < transactionObjArr.length; i++) {
       insertRowInTransactionTable(transactionObjArr[i])
    }
@@ -16,14 +16,14 @@ e.preventDefault();
 let formacion = new FormData(form)
 let transactionObj= converFormDataToTransactionObj(formacion);
 
-if(localStorage.getItem('transactionesData') === null) {
+if(localStorage.getItem('transactionData') === null) {
   let transactionArray = [];
   transactionArray.push(transactionObj);
-  localStorage.setItem('transactionesData', JSON.stringify(transactionArray));
+  localStorage.setItem('transactionData', JSON.stringify(transactionArray));
 } else {
-  let transactionArray = JSON.parse(localStorage.getItem('transactionesData'));
+  let transactionArray = JSON.parse(localStorage.getItem('transactionData'));
   transactionArray.push(transactionObj);
-  localStorage.setItem('transactionesData', JSON.stringify(transactionArray));
+  localStorage.setItem('transactionData', JSON.stringify(transactionArray));
 }
 
 insertRowInTransactionTable(transactionObj)
@@ -45,19 +45,18 @@ function converFormDataToTransactionObj(formacion) {
 
 function insertRowInTransactionTable(transactionObj) {
 
-  let monto = document.getElementById("amount").value;
   let table = document.getElementById("tasks");
   let row = table.insertRow(-1);
   row.setAttribute("data-transaction-id", transactionObj["transactionId"])
 
     let newCell = row.insertCell(0);
-    newCell.textContent = transactionObj["type"]
+    newCell.textContent = transactionObj["type"];
 
     newCell = row.insertCell(1);
-    newCell.textContent = transactionObj["descripcion"]
+    newCell.textContent = transactionObj["descripcion"];
 
     newCell = row.insertCell(2);
-    newCell.textContent = `$ ${monto}`
+    newCell.textContent = transactionObj["monto"];
 
     newCell = row.insertCell(3);
     newCell.textContent = transactionObj["categoria"];
@@ -78,13 +77,12 @@ function insertRowInTransactionTable(transactionObj) {
 }
 
 function deleteTransactionObj(transactionId) {
-  let transactionObjArr = JSON.parse(localStorage.getItem("transactionesData"));
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
   let transactionIndexArray = transactionObjArr.findIndex(element => element.transactionId === transactionId)
   transactionObjArr.splice(transactionIndexArray, 1)
   let transactionArrayJSON = JSON.stringify(transactionObjArr)
-  localStorage.setItem("transactionesData", transactionArrayJSON)
+  localStorage.setItem("transactionData", transactionArrayJSON)
 }
-
 
 
 
