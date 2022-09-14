@@ -60,7 +60,16 @@ function insertRowInTransactionTable(transactionObj) {
     newCell = row.insertCell(3);
     newCell.textContent = transactionObj["categoria"];
 
-  form.reset();
+   let NewdeleteCell = row.insertCell(4);
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "eliminar";
+    NewdeleteCell.appendChild(deleteButton)
+
+  deleteButton.addEventListener("click", function(e) {
+    e.target.parentNode.parentNode.remove()
+    })
+
+      form.reset();
 }
 
 
