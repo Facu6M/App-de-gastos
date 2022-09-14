@@ -1,8 +1,18 @@
+
+document.addEventListener("DOMContentLoaded", function(){
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
+  for (i=0; i < transactionObjArr.length; i++) {
+      insertRowInTransactionTable(transactionObjArr[i])
+   }
+})
+
+
+
+
 const form = document.getElementById("formTask")
 
 form.addEventListener("submit", function(e) {
 e.preventDefault();
-
 let formacion = new FormData(form)
 let transactionObj= converFormDataToTransactionObj(formacion);
 
@@ -17,16 +27,6 @@ if(localStorage.getItem('transactionData') === null) {
 }
 
 insertRowInTransactionTable(transactionObj)
-})
-
-
-
-
-document.addEventListener("DOMContentLoaded", function(){
-    let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
-    for (i=0; i < transactionObjArr.length; i++) {
-        insertRowInTransactionTable(transactionObjArr[i])
-     }
 })
 
 function converFormDataToTransactionObj(formacion) {
@@ -47,6 +47,7 @@ function insertRowInTransactionTable(transactionObj) {
 
   let table = document.getElementById("tasks");
   let row = table.insertRow(-1);
+  row.setAttribute("data-transaction-id", transactionObj["transactionId"])
 
     let newCell = row.insertCell(0);
     newCell.textContent = transactionObj["type"]
@@ -60,16 +61,27 @@ function insertRowInTransactionTable(transactionObj) {
     newCell = row.insertCell(3);
     newCell.textContent = transactionObj["categoria"];
 
-   let NewdeleteCell = row.insertCell(4);
+    let NewdeleteCell = row.insertCell(4);
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "eliminar";
     NewdeleteCell.appendChild(deleteButton)
 
   deleteButton.addEventListener("click", function(e) {
-    e.target.parentNode.parentNode.remove()
+    let transactionRow = e.target.parentNode.parentNode;
+    let transactionId = transactionRow.getAttribute("data-transaction-id")
+    transactionRow.remove();
+    deleteTransactionObj(transactionId)
     })
 
-      form.reset();
+  form.reset();
+}
+
+function deleteTransactionObj(transactionId) {
+  let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"));
+  let transactionIndexArray = transactionObjArr.findIndex(element => element.transactionId === transactionId)
+  transactionObjArr.splice(transactionIndexArray, 1)
+  let transactionArrayJSON = JSON.stringify(transactionObjArr)
+  localStorage.setItem("transactionData", transactionArrayJSON)
 }
 
 
