@@ -45,6 +45,7 @@ function converFormDataToTransactionObj(formacion) {
 
 function insertRowInTransactionTable(transactionObj) {
 
+  let monto = document.getElementById("amount").value;
   let table = document.getElementById("tasks");
   let row = table.insertRow(-1);
   row.setAttribute("data-transaction-id", transactionObj["transactionId"])
@@ -56,7 +57,7 @@ function insertRowInTransactionTable(transactionObj) {
     newCell.textContent = transactionObj["descripcion"]
 
     newCell = row.insertCell(2);
-    newCell.textContent = transactionObj["monto"]
+    newCell.textContent = `$ ${monto}`
 
     newCell = row.insertCell(3);
     newCell.textContent = transactionObj["categoria"];
