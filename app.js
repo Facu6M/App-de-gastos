@@ -21,7 +21,7 @@ if(localStorage.getItem('transactionesData') === null) {
   transactionArray.push(transactionObj);
   localStorage.setItem('transactionesData', JSON.stringify(transactionArray));
 } else {
-  let transactionArray = JSON.parse(localStorage.getItem('transactionData'));
+  let transactionArray = JSON.parse(localStorage.getItem('transactionesData'));
   transactionArray.push(transactionObj);
   localStorage.setItem('transactionesData', JSON.stringify(transactionArray));
 }
