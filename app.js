@@ -82,7 +82,7 @@ function deleteTransactionObj(transactionId) {
   let transactionIndexArray = transactionObjArr.findIndex(element => element.transactionId === transactionId)
   transactionObjArr.splice(transactionIndexArray, 1)
   let transactionArrayJSON = JSON.stringify(transactionObjArr)
-  localStorage.setItem("transactioesnData", transactionArrayJSON)
+  localStorage.setItem("transactionesData", transactionArrayJSON)
 }
 
 
