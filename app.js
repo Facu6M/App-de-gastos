@@ -64,7 +64,7 @@ function insertRowInTransactionTable(transactionObj) {
 
     let NewdeleteCell = row.insertCell(4);
     let deleteButton = document.createElement("button");
-    deleteButton.textContent = "eliminar";
+    deleteButton.textContent = "delete";
     NewdeleteCell.appendChild(deleteButton)
 
   deleteButton.addEventListener("click", function(e) {
